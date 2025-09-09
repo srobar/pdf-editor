@@ -26,17 +26,18 @@ function App() {
       <button 
         className='save-button'
         onClick={async () => {
-          const data = await documentRef.current.saveDocument();
-          const blob = new Blob([data], { type: 'application/pdf' });
+          console.log(documentRef.current);
+          //const data = await documentRef.current.saveDocument();
+          //const blob = new Blob([data], { type: 'application/pdf' });
     
-          const link = document.createElement('a');      
-          const url = URL.createObjectURL(blob);
-          link.href = url;
-          link.download = 'document.pdf';
+          //const link = document.createElement('a');      
+          //const url = URL.createObjectURL(blob);
+          //link.href = url;
+          //link.download = 'document.pdf';
           
-          link.click();
+          //link.click();
     
-          URL.revokeObjectURL(url);
+          //URL.revokeObjectURL(url);
         }}>
           {'Save file'}
       </button>
