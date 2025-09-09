@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import './App.css';
-//import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+//import 'react-pdf/dist/Page/TextLayer.css';
 import samplePDF from './sample.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
