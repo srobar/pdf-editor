@@ -2,13 +2,15 @@ import React, { useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import './App.css';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+//import 'react-pdf/dist/Page/TextLayer.css';
 import samplePDF from './sample.pdf';
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.mjs',
-  import.meta.url,
-).toString();
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+//pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+//  'pdfjs-dist/build/pdf.worker.min.mjs',
+//  import.meta.url,
+//).toString();
 
 function App() {
   const documentRef = useRef()
@@ -26,18 +28,17 @@ function App() {
       <button 
         className='save-button'
         onClick={async () => {
-          console.log(documentRef.current);
-          //const data = await documentRef.current.saveDocument();
-          //const blob = new Blob([data], { type: 'application/pdf' });
+          const data = await documentRef.current.saveDocument();
+          const blob = new Blob([data], { type: 'application/pdf' });
     
-          //const link = document.createElement('a');      
-          //const url = URL.createObjectURL(blob);
-          //link.href = url;
-          //link.download = 'document.pdf';
+          const link = document.createElement('a');      
+          const url = URL.createObjectURL(blob);
+          link.href = url;
+          link.download = 'document.pdf';
           
-          //link.click();
+          link.click();
     
-          //URL.revokeObjectURL(url);
+          URL.revokeObjectURL(url);
         }}>
           {'Save file'}
       </button>
