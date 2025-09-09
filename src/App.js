@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import './App.css';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
 import samplePDF from './sample.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
